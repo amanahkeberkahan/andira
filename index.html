@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dashboard operasional kuota, penjualan, jamaah, dan keuangan Andira Umroh." />
+  <title>Dashboard Kuota Umroh — Andira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">A</span><div><strong>ANDIRA</strong><small>UMROH & TRAVEL</small></div></div>
+      <nav aria-label="Navigasi utama">
+        <button class="nav-item active" data-section="dashboard"><span>▦</span>Dashboard</button>
+        <button class="nav-item" data-section="master-paket"><span>◈</span>Master Paket</button>
+        <button class="nav-item" data-section="keberangkatan"><span>✈</span>Keberangkatan</button>
+        <button class="nav-item" data-section="jamaah"><span>♙</span>Data Jamaah</button>
+        <button class="nav-item" data-section="penjualan"><span>◫</span>Penjualan</button>
+        <button class="nav-item" data-section="keuangan"><span>◉</span>Keuangan</button>
+      </nav>
+      <div class="sidebar-footer"><div class="avatar">AR</div><div><strong>Andira Travel</strong><small>Administrator</small></div><button aria-label="Pengaturan">⋮</button></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Buka menu">☰</button>
+        <div><p class="eyebrow">PUSAT KENDALI OPERASIONAL</p><h1>Dashboard Kuota Umroh</h1><p class="subtitle">Pantau kursi, penjualan, dan kesiapan jamaah dalam satu layar.</p></div>
+        <div class="header-actions"><button class="icon-button" aria-label="Notifikasi">♢<span class="notification-dot"></span></button><button class="primary-button" id="exportButton">⇩ Unduh Laporan</button></div>
+      </header>
+
+      <section class="master-view" id="masterView" hidden>
+        <div class="master-heading"><div><p class="section-label">PENGATURAN OPERASIONAL</p><h2>Master Paket Umroh</h2><p>Kelola paket dan kuota yang menjadi dasar perhitungan dashboard.</p></div><button class="primary-button" id="newPackageButton">＋ Tambah Paket</button></div>
+        <article class="panel master-form-panel" id="packageFormPanel" hidden>
+          <div class="panel-header"><div><p class="section-label">FORM PAKET</p><h2 id="formTitle">Tambah Paket Baru</h2></div><button type="button" class="close-button" id="closeFormButton">×</button></div>
+          <form id="packageForm" class="package-form"><input type="hidden" id="packageId"><label>Nama paket<input id="packageName" required placeholder="Umroh Ramadhan"></label><label>Tanggal berangkat<input id="packageDate" type="date" required></label><label>Harga paket (Rp)<input id="packagePrice" type="number" min="0" step="50000" required></label><label>Kuota jamaah<input id="packageQuota" type="number" min="1" required></label><label>Status<select id="packageStatus"><option>Aktif</option><option>Draft</option><option>Ditutup</option></select></label><label class="full-field">Catatan<textarea id="packageNotes" rows="2" placeholder="Maskapai, hotel, atau catatan penting"></textarea></label><div class="form-actions full-field"><button type="button" class="secondary-button" id="cancelFormButton">Batal</button><button type="submit" class="primary-button">Simpan Paket</button></div></form>
+        </article>
+        <article class="panel"><div class="panel-header"><div><p class="section-label">DAFTAR PAKET</p><h2>Paket Keberangkatan</h2></div><span class="muted" id="packageCount"></span></div><div class="table-wrap"><table><thead><tr><th>NAMA PAKET</th><th>KEBERANGKATAN</th><th>HARGA</th><th>KUOTA</th><th>TERISI</th><th>STATUS</th><th>AKSI</th></tr></thead><tbody id="masterPackageTable"></tbody></table></div></article>
+      </section>
+
+      <div class="dashboard-content" id="dashboardContent">
+      <section class="filters card-flat" aria-label="Filter dashboard">
+        <label>Periode<select id="periodFilter"><option value="all">Semua Keberangkatan</option></select></label>
+        <label>Status<select id="statusFilter"><option value="all">Semua Status</option><option value="Aman">Aman</option><option value="Perlu Didorong">Perlu Didorong</option><option value="Kritis">Kritis</option></select></label>
+        <div class="last-update"><span></span>Data diperbarui <strong>hari ini, 09.45 WIB</strong></div>
+      </section>
+
+      <section class="kpi-grid" id="kpiGrid"></section>
+
+      <section class="grid-main">
+        <article class="panel departures-panel">
+          <div class="panel-header"><div><p class="section-label">MONITORING UTAMA</p><h2>Progress Keberangkatan</h2></div><button class="text-button">Lihat semua →</button></div>
+          <div class="table-wrap"><table><thead><tr><th>PAKET & TANGGAL</th><th>KUOTA</th><th>TERJUAL</th><th>KETERISIAN</th><th>SISA WAKTU</th><th>STATUS</th></tr></thead><tbody id="departuresTable"></tbody></table></div>
+        </article>
+        <article class="panel pace-panel">
+          <div class="panel-header"><div><p class="section-label">TARGET MINGGUAN</p><h2>Pace Penjualan</h2></div><span class="live-badge">● Live</span></div>
+          <div id="paceContent"></div>
+        </article>
+      </section>
+
+      <section class="grid-equal">
+        <article class="panel"><div class="panel-header"><div><p class="section-label">FUNNEL PENJUALAN</p><h2>Pipeline Jamaah</h2></div><span class="muted">Total 92 kontak</span></div><div class="pipeline" id="pipeline"></div></article>
+        <article class="panel"><div class="panel-header"><div><p class="section-label">AKUISISI</p><h2>Sumber Jamaah</h2></div><span class="muted">Bulan berjalan</span></div><div class="source-layout"><div class="donut" id="donut"><div><strong>36</strong><small>jamaah</small></div></div><div class="legend" id="sourceLegend"></div></div></article>
+      </section>
+
+      <section class="grid-main bottom-grid">
+        <article class="panel"><div class="panel-header"><div><p class="section-label">ARUS PENJUALAN</p><h2>Tren Penjualan</h2></div><div class="trend-total"><strong>+14</strong><span>jamaah bulan ini</span></div></div><div class="chart-wrap"><svg id="trendChart" viewBox="0 0 760 235" role="img" aria-label="Grafik tren penjualan mingguan"></svg></div></article>
+        <article class="panel finance"><div class="panel-header"><div><p class="section-label">RINGKASAN</p><h2>Keuangan</h2></div><span class="positive">↗ 12,4%</span></div><div id="financeContent"></div></article>
+      </section>
+
+      <section class="alerts-section"><div class="section-title-row"><div><p class="section-label">BUTUH PERHATIAN</p><h2>Alert & Tindak Lanjut</h2></div><button class="text-button">Tandai semua dibaca</button></div><div class="alerts-grid" id="alertsGrid"></div></section>
+      </div>
+      <footer>© 2026 Andira Umroh & Travel <span>•</span> Dashboard operasional internal</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

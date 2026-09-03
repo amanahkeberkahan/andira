@@ -51,24 +51,24 @@
       <section class="kpi-grid" id="kpiGrid"></section>
 
       <section class="grid-main">
-        <article class="panel departures-panel">
+        <article class="panel departures-panel" id="keberangkatanSection">
           <div class="panel-header"><div><p class="section-label">MONITORING UTAMA</p><h2>Progress Keberangkatan</h2></div><button class="text-button">Lihat semua →</button></div>
           <div class="table-wrap"><table><thead><tr><th>PAKET & TANGGAL</th><th>KUOTA</th><th>TERJUAL</th><th>KETERISIAN</th><th>SISA WAKTU</th><th>STATUS</th></tr></thead><tbody id="departuresTable"></tbody></table></div>
         </article>
-        <article class="panel pace-panel">
+        <article class="panel pace-panel" id="paceSection">
           <div class="panel-header"><div><p class="section-label">TARGET MINGGUAN</p><h2>Pace Penjualan</h2></div><span class="live-badge">● Live</span></div>
           <div id="paceContent"></div>
         </article>
       </section>
 
       <section class="grid-equal">
-        <article class="panel"><div class="panel-header"><div><p class="section-label">FUNNEL PENJUALAN</p><h2>Pipeline Jamaah</h2></div><span class="muted">Total 92 kontak</span></div><div class="pipeline" id="pipeline"></div></article>
+        <article class="panel" id="jamaahSection"><div class="panel-header"><div><p class="section-label">FUNNEL PENJUALAN</p><h2>Pipeline Jamaah</h2></div><span class="muted">Total 92 kontak</span></div><div class="pipeline" id="pipeline"></div></article>
         <article class="panel"><div class="panel-header"><div><p class="section-label">AKUISISI</p><h2>Sumber Jamaah</h2></div><span class="muted">Bulan berjalan</span></div><div class="source-layout"><div class="donut" id="donut"><div><strong>36</strong><small>jamaah</small></div></div><div class="legend" id="sourceLegend"></div></div></article>
       </section>
 
       <section class="grid-main bottom-grid">
-        <article class="panel"><div class="panel-header"><div><p class="section-label">ARUS PENJUALAN</p><h2>Tren Penjualan</h2></div><div class="trend-total"><strong>+14</strong><span>jamaah bulan ini</span></div></div><div class="chart-wrap"><svg id="trendChart" viewBox="0 0 760 235" role="img" aria-label="Grafik tren penjualan mingguan"></svg></div></article>
-        <article class="panel finance"><div class="panel-header"><div><p class="section-label">RINGKASAN</p><h2>Keuangan</h2></div><span class="positive">↗ 12,4%</span></div><div id="financeContent"></div></article>
+        <article class="panel" id="penjualanSection"><div class="panel-header"><div><p class="section-label">ARUS PENJUALAN</p><h2>Tren Penjualan</h2></div><div class="trend-total"><strong>+14</strong><span>jamaah bulan ini</span></div></div><div class="chart-wrap"><svg id="trendChart" viewBox="0 0 760 235" role="img" aria-label="Grafik tren penjualan mingguan"></svg></div></article>
+        <article class="panel finance" id="keuanganSection"><div class="panel-header"><div><p class="section-label">RINGKASAN</p><h2>Keuangan</h2></div><span class="positive">↗ 12,4%</span></div><div id="financeContent"></div></article>
       </section>
 
       <section class="alerts-section"><div class="section-title-row"><div><p class="section-label">BUTUH PERHATIAN</p><h2>Alert & Tindak Lanjut</h2></div><button class="text-button">Tandai semua dibaca</button></div><div class="alerts-grid" id="alertsGrid"></div></section>

@@ -5,6 +5,10 @@ window.UMROH_DATA = {
     { id: 2, name: "Umroh Akhir Tahun", date: "2026-12-22", price: 34900000, quota: 45, sold: 31, booking: 5, daysLeft: 110, status: "Aman", packageStatus: "Aktif", notes: "Program liburan keluarga", color: "green" },
     { id: 3, name: "Umroh Awal Tahun", date: "2027-01-18", price: 31900000, quota: 45, sold: 9, booking: 4, daysLeft: 137, status: "Kritis", packageStatus: "Draft", notes: "Menunggu finalisasi maskapai", color: "red" }
   ],
+  jamaah: [
+    { id: 101, name: "Ahmad Fauzi", phone: "0812 3456 7890", nik: "3273••••9012", packageId: 1, status: "DP", source: "Referral", paid: 10000000, due: "2026-10-15", passport: "Lengkap", visa: "Proses", pic: "Rahma", followup: "2026-09-06", notes: "Berangkat bersama istri" },
+    { id: 102, name: "Siti Maryam", phone: "0813 7788 9900", nik: "3276••••1188", packageId: 2, status: "Follow Up", source: "WhatsApp", paid: 0, due: "", passport: "Belum Ada", visa: "Belum Proses", pic: "Fikri", followup: "2026-09-04", notes: "Menunggu konfirmasi keluarga" }
+  ],
   pipeline: [
     { label: "Lead Masuk", value: 92, color: "#A8B4C8" },
     { label: "Follow Up", value: 64, color: "#6483A9" },

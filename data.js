@@ -6,8 +6,11 @@ window.UMROH_DATA = {
     { id: 3, name: "Umroh Awal Tahun", date: "2027-01-18", price: 31900000, quota: 45, sold: 9, booking: 4, daysLeft: 137, status: "Kritis", packageStatus: "Draft", notes: "Menunggu finalisasi maskapai", color: "red" }
   ],
   jamaah: [
-    { id: 101, name: "Ahmad Fauzi", phone: "0812 3456 7890", nik: "3273••••9012", packageId: 1, status: "DP", source: "Referral", paid: 10000000, due: "2026-10-15", passport: "Lengkap", visa: "Proses", pic: "Rahma", followup: "2026-09-06", notes: "Berangkat bersama istri" },
-    { id: 102, name: "Siti Maryam", phone: "0813 7788 9900", nik: "3276••••1188", packageId: 2, status: "Follow Up", source: "WhatsApp", paid: 0, due: "", passport: "Belum Ada", visa: "Belum Proses", pic: "Fikri", followup: "2026-09-04", notes: "Menunggu konfirmasi keluarga" }
+    { id: 101, name: "Ahmad Fauzi", phone: "0812 3456 7890", nik: "3273••••9012", packageId: 1, status: "Booking", source: "Referral", type: "Grup", group: "Keluarga Ahmad", leader: "Ahmad Fauzi", due: "2026-10-15", passport: "Lengkap", visa: "Proses", pic: "Rahma", followup: "2026-09-06", notes: "Berangkat bersama istri" },
+    { id: 102, name: "Siti Maryam", phone: "0813 7788 9900", nik: "3276••••1188", packageId: 2, status: "Follow Up", source: "WhatsApp", type: "Individu", group: "", leader: "", due: "", passport: "Belum Ada", visa: "Belum Proses", pic: "Fikri", followup: "2026-09-04", notes: "Menunggu konfirmasi keluarga" }
+  ],
+  payments: [
+    { id: 9001, jamaahId: 101, date: "2026-09-05", amount: 10000000, method: "Transfer", scope: "Individu", sender: "Ahmad Fauzi", ref: "TRX-0905", admin: "Rahma", notes: "DP" }
   ],
   pipeline: [
     { label: "Lead Masuk", value: 92, color: "#A8B4C8" },
